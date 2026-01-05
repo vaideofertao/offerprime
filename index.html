@@ -1,10 +1,335 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-  <meta charset="UTF-8">
-  <title>OfferPrime</title>
-</head>
-<body>
-  <h1>OfferPrime em construção</h1>
+<html><head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>OfferPrime | Curadoria Inteligente de Ofertas</title>
+        <link rel="icon" href="/favicon.ico">
+        <link rel="icon" type="image/png" sizes="32x32" href="/genfavicon-32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/genfavicon-16.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png">
+        <link rel="manifest" href="/site.webmanifest">
+        <meta name="description" content="OfferPrime é uma plataforma de curadoria inteligente. Apenas produtos que realmente valem a pena, escolhidos com critério e transparência.">
+        <meta name="theme-color" content="#0b1c2d">
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Playfair+Display:wght@600;700&amp;display=swap" rel="stylesheet">
+        <style>
+            :root{
+              --blue-dark:#0b1c2d;
+              --blue-soft:#10263f;
+              --gold:#c9a24d;
+              --gold-soft:#e1c47a;
+              --text:#1c1c1c;
+            }
+            
+            /* RESET */
+            *{margin:0;padding:0;box-sizing:border-box}
+            html{scroll-behavior:smooth}
+            
+            body{
+              background:#f6f7f9;
+              color:var(--text);
+              font-family:'Inter',sans-serif;
+              line-height:1.6;
+            }
+            
+            /* HEADER */
+            header{
+              background:linear-gradient(180deg,var(--blue-dark),var(--blue-soft));
+              padding:40px 20px 60px;
+              text-align:center;
+            }
+            
+            .logo{
+              font-family:'Playfair Display', serif;
+              font-size:36px;
+              font-weight:700;
+              color:#fff;
+            }
+            
+            .logo span{color:var(--gold)}
+            
+            .tagline{
+              margin-top:8px;
+              color:var(--gold-soft);
+              font-size:14px;
+              letter-spacing:2px;
+            }
+            
+            /* HERO */
+            .hero{
+              max-width:900px;
+              margin:60px auto 120px;
+              padding:0 20px;
+              text-align:center;
+            }
+            
+            .hero h1{
+              font-family:'Playfair Display', serif;
+              font-size:42px;
+              margin-bottom:16px;
+              color:var(--blue-dark);
+            }
+            
+            .hero p{
+              font-size:18px;
+              color:#555;
+              margin-bottom:28px;
+            }
+            
+            .trust{
+              display:flex;
+              justify-content:center;
+              gap:20px;
+              flex-wrap:wrap;
+              font-weight:600;
+            }
+            
+            .trust span{
+              background:#fff;
+              padding:10px 18px;
+              border-radius:999px;
+              box-shadow:0 6px 18px rgba(0,0,0,.08);
+            }
+            
+            /* PRODUCTS */
+            .products{
+              max-width:1200px;
+              margin:0 auto 120px;
+              padding:0 20px;
+            }
+            
+            .products h2{
+              font-family:'Playfair Display', serif;
+              font-size:28px;
+              margin-bottom:32px;
+            }
+            
+            /* GRID */
+            .products-grid{
+              display:grid;
+              grid-template-columns:repeat(4,1fr);
+              gap:28px;
+            }
+            
+            /* CARD */
+            .product-card{
+              background:#fff;
+              border-radius:18px;
+              padding:24px;
+              text-align:center;
+              box-shadow:0 8px 24px rgba(0,0,0,.08);
+              transition:.25s ease;
+            }
+            
+            .product-card:hover{
+              transform:translateY(-3px);
+              box-shadow:0 14px 34px rgba(0,0,0,.12);
+            }
+            
+            /* IMAGE */
+            .product-card .img{
+              width:100%;
+              aspect-ratio:1/1;
+              background:#f2f2f2;
+              border-radius:14px;
+              margin-bottom:18px;
+              display:flex;
+              align-items:center;
+              justify-content:center;
+            }
+            
+            .product-card .img img{
+              width:100%;
+              height:100%;
+              object-fit:contain;
+              border-radius:12px;
+            }
+            
+            .product-card h3{
+              font-size:16px;
+              margin-bottom:6px;
+            }
+            
+            .product-card p{
+              font-size:14px;
+              color:#555;
+            }
+            
+            .product-btn{
+              display:inline-block;
+              margin-top:14px;
+              padding:10px 20px;
+              border-radius:999px;
+              border:1px solid rgba(0,0,0,.15);
+              font-size:14px;
+              font-weight:600;
+              color:var(--blue-dark);
+              text-decoration:none;
+              transition:.2s ease;
+            }
+            
+            .product-btn:hover{
+              background:var(--blue-dark);
+              color:#fff;
+            }
+            
+            /* FAQ */
+            .faq-wrapper{
+              background:rgba(201,162,77,0.12);
+              padding:120px 0;
+            }
+            
+            .faq{
+              max-width:900px;
+              margin:0 auto;
+              padding:0 20px;
+            }
+            
+            .faq h2{
+              font-size:28px;
+              margin-bottom:32px;
+              text-align:center;
+            }
+            
+            .faq details{
+              background:#fff;
+              border-radius:14px;
+              padding:22px 26px;
+              margin-bottom:18px;
+              box-shadow:0 6px 18px rgba(0,0,0,.06);
+            }
+            
+            .faq summary{
+              font-weight:600;
+              font-size:16px;
+              cursor:pointer;
+            }
+            
+            .faq p{
+              margin-top:12px;
+              font-size:15px;
+              color:#555;
+            }
+            
+            /* FOOTER */
+            footer{
+              background:var(--blue-dark);
+              color:#aaa;
+              text-align:center;
+              padding:30px 20px;
+              font-size:14px;
+            }
+            
+            /* RESPONSIVO */
+            @media(max-width:1024px){
+              .products-grid{grid-template-columns:repeat(2,1fr)}
+            }
+            
+            @media(max-width:600px){
+              .products-grid{grid-template-columns:1fr}
+              .hero h1{font-size:32px}
+              .hero p{font-size:16px}
+            }
+        </style>
+    </head><body>
+        <header>
+            <div class="logo">Offer
+                <span>Prime</span>
+            </div>
+            <div class="tagline">CURADORIA INTELIGENTE</div>
+        </header>
+        <main>
+            <section class="hero">
+                <h1>As melhores ofertas, escolhidas com inteligência</h1>
+                <p>Na OfferPrime, você vê apenas o que realmente vale a pena. Nada de excesso.
+                    Nada de pegadinhas. Apenas boas escolhas.</p>
+                <div class="trust">
+                    <span>✔ Sem cadastro</span>
+                    <span>✔ Links oficiais</span>
+                    <span>✔ Melhores condições de entrega</span>
+                </div>
+            </section>
+            <section class="products">
+                <h2>Recomendações atuais</h2>
+                <div class="products-grid">
+                    <div class="product-card">
+                        <div class="img">
+                            <img src="images\produtos\notebook_acer_aspire5_a515_45_r043_a.png" alt="Produto OfferPrime">
+                        </div>
+                        <h3>Notebook Acer Aspire 5 A515-45-R043 | Ryzen 5, 16GB RAM, SSD 512GB, Tela 15,6″ Full HD IPS, Windows 11</h3>
+                        <p>O Acer Aspire 5 A515-45-R043 combina desempenho sólido, fluidez e boa experiência visual para estudos, trabalho e uso diário.
+
+</p>
+                        <a href="notebook-acer-aspire-5-a515-45-r043-ryzen-5-16gb-512gb-ssd-windows-11.html" class="product-btn">Ver detalhes</a>
+                    </div>
+                    <div class="product-card">
+                        <div class="img">
+                            <img src="images\produtos\notebook_asus_vivobook_15_x1504va_nj1745w_b.png" alt="Produto OfferPrime">
+                        </div>
+                        <h3>Notebook ASUS Vivobook 15 X1504VA-NJ1745W | Intel Core i5, 16GB RAM, SSD 512GB, Tela 15,6″ Full HD, Windows 11</h3>
+                        <p>O ASUS Vivobook 15 combina o desempenho do Intel Core i5 com 16 GB de RAM e SSD de 512 GB, garantindo fluidez para trabalho, estudos e multitarefas.
+
+</p>
+                        <a href="notebook-asus-vivobook-15-i5-16gb-512gb-ssd-windows-11-x1504va-nj1745w.html" class="product-btn">Ver detalhes</a>
+                    </div>
+                    <div class="product-card">
+                        <div class="img">
+                            <img src="images\produtos\samsung-vision-ai-tv-50-qled-ultra-4k-qef1-frontal.png" alt="Produto OfferPrime">
+                        </div>
+                        <h3>Samsung Vision AI TV 50″ QLED Ultra 4K QEF1 2025
+</h3>
+                        <p>A Samsung Vision AI TV 50″ QLED Ultra 4K QEF1 2025 entrega imagens mais inteligentes, cores precisas e alta definição, combinando tecnologia de IA, painel QLED e design sofisticado.
+
+</p>
+                        <a href="samsung-vision-ai-tv-50-qled-ultra-4k-qef1-2025.html" class="product-btn">Ver detalhes</a>
+                    </div>
+                    <div class="product-card">
+                        <div class="img">
+                            <img src="images\produtos\offerprime-hq-angulada.png" alt="Produto OfferPrime">
+                        </div>
+                        <h3>Ar-Condicionado Portátil HQ 8.500 BTU/h Frio Monofásico Branco HQ-AP8500FW
+</h3>
+                        <p>Solução prática para climatizar ambientes pequenos com eficiência, mobilidade e uso descomplicado.
+
+</p>
+                        <a href="ar-condicionado-portatil-hq-8500-btu-frio-monofasico-branco-hq-ap8500fw-127v.html" class="product-btn">Ver detalhes</a>
+                    </div>
+                </div>
+            </section>
+            <section class="faq-wrapper">
+                <div class="faq">
+                    <h2>Dúvidas frequentes</h2>
+                    <details>
+                        <summary>O que é a OfferPrime?</summary>
+                        <p>A OfferPrime é uma plataforma independente de curadoria inteligente.</p>
+                    </details>
+                    <details>
+                        <summary>A OfferPrime vende produtos?</summary>
+                        <p>Não. Você compra diretamente nos marketplaces oficiais.</p>
+                    </details>
+                    <details>
+                        <summary>Como funciona a curadoria?</summary>
+                        <p>Avaliamos preço, reputação e histórico antes de recomendar.</p>
+                    </details>
+                    <details>
+                        <summary>Preciso me cadastrar?</summary>
+                        <p>Não. A navegação é livre.</p>
+                    </details>
+                    <details>
+                        <summary>Os links são confiáveis?</summary>
+                        <p>Sim. Apenas links oficiais.</p>
+                    </details>
+                </div>
+            </section>
+        </main>
+		
+        <footer>© 2026 — OfferPrime · Curadoria Inteligente de Ofertas</footer>
+
+<script>
+  if ("serviceWorker" in navigator) {
+    window.addEventListener("load", function () {
+      navigator.serviceWorker.register("/service-worker.js");
+    });
+  }
+</script>
+
 </body>
 </html>
